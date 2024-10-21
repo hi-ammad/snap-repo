@@ -1,11 +1,10 @@
 {
   "name": "@openjs/snap-repo",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "exports": {
     ".": "./lib/main.ts",
     "./cli": "./lib/cli.ts"
   },
-  "bin": ["./lib/cli.ts"],
   "license": "MIT",
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
