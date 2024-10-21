@@ -15,10 +15,10 @@ jobs:
           deno-version: v2.x
 
       - name: Run tests
-        run: deno test --allow-write --allow-env --allow-sys --allow-read --allow-net --allow-env --coverage=cov/
+        run: deno test --allow-write --allow-env --allow-sys --allow-read --allow-net --coverage=cov/
 
       - name: Generate coverage
-        run: deno coverage cov/ --lcov > coverage.lcov
+        run: deno coverage --allow-write --allow-read cov/ --lcov > coverage.lcov
 
       # upload codecov coverage
       - name: Upload coverage to Codecov
