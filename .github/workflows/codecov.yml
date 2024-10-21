@@ -1,8 +1,33 @@
-coverage:
-  status:
-    project: #add everything under here, more options at https://docs.codecov.com/docs/commit-status
-      default:
-        # basic
-        target: auto #default
-        threshold: 5%
-        base: auto
+name: Codecov
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Run tests
+        run: deno test --coverage=cov/
+
+      - name: Generate coverage
+        run: deno coverage cov/ --lcov > coverage.lcov
+
+      # upload codecov coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          slug: codecov/snap-repo
+
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash) -f coverage.lcov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
