@@ -62,13 +62,12 @@ export async function downloadTemplate(
     ...options,
   };
 
-  const registry =
-    options.registry === false
-      ? undefined
-      : registryProvider(options.registry, { auth: options.auth });
+  const registry = options.registry === false
+    ? undefined
+    : registryProvider(options.registry, { auth: options.auth });
 
-  let providerName: string =
-    options.provider || (registry ? "registry" : "github");
+  let providerName: string = options.provider ||
+    (registry ? "registry" : "github");
 
   let source: string = input;
   const sourceProvierMatch = input.match(sourceProtoRe);
@@ -80,8 +79,8 @@ export async function downloadTemplate(
     }
   }
 
-  const provider =
-    options.providers?.[providerName] || providers[providerName] || registry;
+  const provider = options.providers?.[providerName] ||
+    providers[providerName] || registry;
   if (!provider) {
     throw new Error(`Unsupported provider: ${providerName}`);
   }
