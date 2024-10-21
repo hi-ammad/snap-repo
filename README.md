@@ -25,7 +25,7 @@ the box.
 
 ```bash
 # install script
-deno install -g jsr:@openjs/snap-repo/cli --name snaap-rep
+deno install -g jsr:@openjs/snap-repo/cli --name snap-repo
 snap-repo <template> [<dir>] [...options]
 ```
 
