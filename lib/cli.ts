@@ -1,19 +1,11 @@
 #!/usr/bin/env -S deno run --allow-env --allow-read --allow-write --allow-net --allow-run
 
-/**
- * Cli
- * @module
- */
-
 import { relative } from "@std/path";
 import { downloadTemplate } from "./snap.repo.ts";
 import { startShell } from "./utils/index.ts";
 
 // Load package information from the Deno configuration file
-const pkg = JSON.parse(
-  await Deno.readTextFile(new URL("../deno.json", import.meta.url)),
-);
-
+const pkg = { name: "@openjs/snap-repo" };
 // Parse Deno CLI arguments
 const args = Deno.args;
 
@@ -53,7 +45,7 @@ const parsedArgs = parseArgs();
 // Show help if no template is provided
 if (!parsedArgs.template) {
   console.log(`
-    ${pkg.name} v${pkg.version}
+    ${pkg.name} 
 
     Usage:
       ${pkg.name} <template> [dir] [options]
