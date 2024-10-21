@@ -1,6 +1,6 @@
 {
   "name": "@openjs/snap-repo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "exports": {
     ".": "./lib/main.ts",
     "./cli": "./lib/cli.ts"
