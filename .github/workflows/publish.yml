@@ -22,13 +22,20 @@ jobs:
         with:
           deno-version: v2.x # Run with latest stable Deno.
 
+      # deno formatter check
       - run: deno fmt --check
 
+      # deno lint check
       - run: deno lint
 
+      # deno test with coverage
       - run: deno test --allow-write --allow-env --allow-sys --allow-read --allow-net --coverage=cov/
 
       - run: deno coverage --lcov cov/ > cov.lcov
+
+      # upload codecov coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
 
       - name: Publish package
         run: deno publish --allow-dirty
