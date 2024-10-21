@@ -5,6 +5,11 @@ import { homedir } from "node:os";
 import type { GitInfo } from "../types/index.d.ts";
 
 /**
+ * This Module exports util functions
+ * @module
+ **/
+
+/**
  * Downloads a file from a given URL and saves it to the specified file path.
  * It checks for an existing ETag to avoid unnecessary downloads.
  *
@@ -67,7 +72,7 @@ const inputRegex =
  */
 export function parseGitURI(input: string): GitInfo {
   const m = input.match(inputRegex)?.groups || {};
-  return <GitInfo> {
+  return <GitInfo>{
     repo: m.repo,
     subdir: m.subdir || "/",
     ref: m.ref ? m.ref.slice(1) : "main",

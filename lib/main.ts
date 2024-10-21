@@ -1,6 +1,6 @@
 /**
  * Module that re-exports functionalities from various modules.
- *
+ * @module
  * This module serves as a centralized entry point to export commonly used
  * functions, types, and providers for easier access.
  */

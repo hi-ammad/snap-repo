@@ -1,5 +1,10 @@
 #!/usr/bin/env -S deno run --allow-env --allow-read --allow-write --allow-net --allow-run
 
+/**
+ * Cli
+ * @module
+ */
+
 import { relative } from "@std/path";
 import { downloadTemplate } from "./snap.repo.ts";
 import { startShell } from "./utils/index.ts";
