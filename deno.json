@@ -7,11 +7,9 @@
   },
   "bin": ["./lib/cli.ts"],
   "license": "MIT",
-  "tasks": {
-    "cli": "deno run ./lib/cli.ts"
-  },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
+    "@std/expect": "jsr:@std/expect@1",
     "@std/fs": "jsr:@std/fs@1.0.4",
     "@std/path": "jsr:@std/path@1.0.6"
   }

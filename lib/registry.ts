@@ -17,7 +17,7 @@ export const registryProvider = (
   registryEndpoint: string = DEFAULT_REGISTRY,
   options: { auth?: string } = {},
 ): TemplateProvider => {
-  return <TemplateProvider>(async (input) => {
+  return <TemplateProvider> (async (input) => {
     const start = Date.now();
     const registryURL = `${registryEndpoint}/${input}.json`;
 

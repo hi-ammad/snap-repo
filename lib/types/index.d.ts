@@ -78,7 +78,7 @@ export interface TemplateInfo {
   /**
    * Allows additional properties to be added to the template info.
    */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**

@@ -67,7 +67,7 @@ const inputRegex =
  */
 export function parseGitURI(input: string): GitInfo {
   const m = input.match(inputRegex)?.groups || {};
-  return <GitInfo>{
+  return <GitInfo> {
     repo: m.repo,
     subdir: m.subdir || "/",
     ref: m.ref ? m.ref.slice(1) : "main",
@@ -105,6 +105,7 @@ export async function sendFetch(
   options: InternalFetchOptions = {},
 ) {
   if (options.headers?.["sec-fetch-mode"]) {
+    // deno-lint-ignore no-explicit-any
     options.mode = options.headers["sec-fetch-mode"] as any;
   }
 

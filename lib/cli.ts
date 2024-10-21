@@ -1,3 +1,5 @@
+#!/usr/bin/env -S deno run --allow-env --allow-read --allow-write --allow-net --allow-run
+
 import { relative } from "@std/path";
 import { downloadTemplate } from "./snap.repo.ts";
 import { startShell } from "./utils/index.ts";
@@ -16,6 +18,7 @@ const args = Deno.args;
  * @returns An object containing the parsed arguments.
  */
 function parseArgs() {
+  // deno-lint-ignore no-explicit-any
   const parsedArgs: Record<string, any> = {};
   let positionalCount = 0;
 

@@ -87,8 +87,8 @@ export const github: TemplateProvider = (input, options) => {
   const parsed = parseGitURI(input);
 
   // Base URL for GitHub API
-  const githubAPIURL =
-    Deno.env.get("SNAP_REPO_GITHUB_URL") || "https://api.github.com";
+  const githubAPIURL = Deno.env.get("SNAP_REPO_GITHUB_URL") ||
+    "https://api.github.com";
 
   return {
     name: parsed.repo.replace("/", "-"),
@@ -99,7 +99,9 @@ export const github: TemplateProvider = (input, options) => {
       Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
     },
-    url: `${githubAPIURL.replace("api.github.com", "github.com")}/${parsed.repo}/tree/${parsed.ref}${parsed.subdir}`,
+    url: `${
+      githubAPIURL.replace("api.github.com", "github.com")
+    }/${parsed.repo}/tree/${parsed.ref}${parsed.subdir}`,
     tar: `${githubAPIURL}/repos/${parsed.repo}/tarball/${parsed.ref}`,
   };
 };
@@ -143,7 +145,8 @@ export const bitbucket: TemplateProvider = (input, options) => {
     headers: {
       authorization: options.auth ? `Bearer ${options.auth}` : undefined,
     },
-    url: `https://bitbucket.com/${parsed.repo}/src/${parsed.ref}${parsed.subdir}`,
+    url:
+      `https://bitbucket.com/${parsed.repo}/src/${parsed.ref}${parsed.subdir}`,
     tar: `https://bitbucket.org/${parsed.repo}/get/${parsed.ref}.tar.gz`,
   };
 };
@@ -164,7 +167,8 @@ export const sourcehut: TemplateProvider = (input, options) => {
     headers: {
       authorization: options.auth ? `Bearer ${options.auth}` : undefined,
     },
-    url: `https://git.sr.ht/~${parsed.repo}/tree/${parsed.ref}/item${parsed.subdir}`,
+    url:
+      `https://git.sr.ht/~${parsed.repo}/tree/${parsed.ref}/item${parsed.subdir}`,
     tar: `https://git.sr.ht/~${parsed.repo}/archive/${parsed.ref}.tar.gz`,
   };
 };
